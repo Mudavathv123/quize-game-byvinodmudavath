@@ -7,6 +7,8 @@ const MainScreen = props => {
   const { players, currentQuestion } = props;
   const qrUrl = window.location.origin + '/mobile';
 
+  console.log(qrUrl)
+
   console.log(players);
   console.log(currentQuestion)
 

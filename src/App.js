@@ -11,7 +11,7 @@ const App = () => {
   const [questions] = useState([
     { question: "Saddam Beach is located in which state?", options: ["A. Tamil Nadu", "B. Kerala", "C. Maharastra", "D. Karnataka"], answer: "B" },
     { question: "Neel-Darpan’ by Din Bandhu Mitra portrays the plight of :", options: ["A. Bengali Artisans", "B. Indigo Planters", "C. Landless Labourers", "D. All of the above"], answer: "B" },
-    { question: "Which of the following is correct about acceleration due to gravity? ", options: ["A.  it increases with depth", "it decreases with depth", "C.  it is independent of depth", "D.  None of the above"], answer: "B" },
+    { question: "Which of the following is correct about acceleration due to gravity? ", options: ["A.  it increases with depth", "B. it decreases with depth", "C.  it is independent of depth", "D.  None of the above"], answer: "B" },
     { question: "Identify the process from the options below, which is a physical change?", options: ["A. Oxidation", "B. Reduction", "C. Sublimation", "D. Decomposition"], answer: "C" },
     { question: "Who gave theory of photosynthesis?", options: ["A. Maurice Hilleman", "B. Jack Horner", "C. Jan Ingenhousz", "D. Franz Mesmer"], answer: "C" }
   ]);
@@ -30,6 +30,7 @@ const App = () => {
       setTimeout(() => {
         if (currentQuestion + 1 < questions.length) {
           setCurrentQuestion(currentQuestion + 1);
+          setIsCorrectAnswerMsg('');
         } else {
           setIsCorrectAnswerMsg('Game Over! All questions answered.');
         }
