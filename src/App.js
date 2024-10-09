@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import MainScreen from './components/MainScreen';
 import MobileScreen from './components/MobileScreen';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [isCorrectAnswerMsg, setIsCorrectAnswerMsg] = useState('');
   const [players, setPlayers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [questions] = useState([
-    { question: "What's the capital of France?", options: ["A. Paris", "B. Berlin", "C. Rome", "D. Madrid"], answer: "A" },
-    { question: "Who is the CEO of Tesla?", options: ["A. Jeff Bezos", "B. Bill Gates", "C. Elon Musk", "D. Mark Zuckerberg"], answer: "C" }
+    { question: "Saddam Beach is located in which state?", options: ["A. Tamil Nadu", "B. Kerala", "C. Maharastra", "D. Karnataka"], answer: "B" },
+    { question: "Neel-Darpan’ by Din Bandhu Mitra portrays the plight of :", options: ["A. Bengali Artisans", "B. Indigo Planters", "C. Landless Labourers", "D. All of the above"], answer: "B" },
+    { question: "Which of the following is correct about acceleration due to gravity? ", options: ["A.  it increases with depth", "it decreases with depth", "C.  it is independent of depth", "D.  None of the above"], answer: "B" },
+    { question: "Identify the process from the options below, which is a physical change?", options: ["A. Oxidation", "B. Reduction", "C. Sublimation", "D. Decomposition"], answer: "C" },
+    { question: "Who gave theory of photosynthesis?", options: ["A. Maurice Hilleman", "B. Jack Horner", "C. Jan Ingenhousz", "D. Franz Mesmer"], answer: "C" }
   ]);
   
   const handlePlayerJoin = (playerName) => {
     setPlayers([...players, playerName]);
-    setIsMobile(true);
   };
 
   const handleAnswerSubmission = (answer) => {
@@ -38,21 +40,35 @@ const App = () => {
   };
 
   return (
-    <div className="app-container">
-      {isMobile ? (
-        <MobileScreen currentQuestion={questions[currentQuestion]} 
-        onAnswer={handleAnswerSubmission} 
-        onJoin={handlePlayerJoin} 
-        isCorrectAnswerMsg = {isCorrectAnswerMsg}
-        />
-      ) : (
-        <MainScreen
-          players={players}
-          currentQuestion={questions[currentQuestion]}
-        />
-      )}
+    <Router>
+      <div className="app-container">
+      <Routes>
+          <Route 
+            path="/mobile" 
+            element={
+              <MobileScreen 
+              currentQuestion={questions[currentQuestion]}
+              onAnswer={handleAnswerSubmission}
+              onJoin={handlePlayerJoin}
+              isCorrectAnswerMsg={isCorrectAnswerMsg}
+              />
+            } 
+          />
+          
+          <Route
+            path="/" 
+            element={
+              <MainScreen 
+              players={players}
+              currentQuestion={questions[currentQuestion]}
+            />
+          }
+          />
+        </Routes>
     </div>
+    </Router>
   );
+ 
 };
 
 export default App;

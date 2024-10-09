@@ -57,6 +57,7 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 5px 5px 10px gold, -5px -5px 10px gold;
+    max-width: 450px;
 }
 .options-container {
   display: flex;
