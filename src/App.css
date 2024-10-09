@@ -30,12 +30,6 @@ body {
   gap: 10px;
 }
 
-.qr-code-container {
-  align-self: end;
-  position: absolute;
-  right: 17%;
-  top: 25%;
-}
 
 .main-screen-heading {
   position:absolute;
@@ -46,9 +40,7 @@ body {
 }
 
 .question-container {
-  position: absolute;
-  top: 30%;
-  left: 35%;
+  order: -1;
 }
 
 .question {
@@ -131,31 +123,8 @@ body {
   border-bottom-right-radius: 10px;
 }
 
-.mobile-option {
 
-  min-height: 36px;
-  min-width: 200px;
-  margin-top: 10px;
-  background-color: rgb(59, 89, 165);
-  font-size: 18px;
-  text-align: start;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 5px 5px 20px rgb(59, 89, 165);
 
-}
-
-.mobile-screen-question {
-  max-height: 100vw;
-    border: 2px solid goldenrod;
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 5px 5px 10px gold, -5px -5px 10px gold;
-}
 
 .text-msg {
   min-height: 36px;
@@ -188,4 +157,71 @@ body {
 
 .empty {
   display: none;
+}
+
+.container {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 80px;
+}
+
+
+@media (max-width:768px) {
+  .app-container {
+    min-height: 140vh;
+    background: url("https://res.cloudinary.com/dnml2vs6t/image/upload/v1728448479/MyMiniProjectsImages/pwwr9lyrvunuf3fcw9lf.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100vw;
+    height: 600px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20;
+    margin-top: 100px;
+  }
+
+  .mobile-screen-question {
+      max-height: 100vw;
+      border: 2px solid goldenrod;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 5px 5px 10px gold, -5px -5px 10px gold;
+  }
+  
+  .mobile-option {
+
+    min-height: 36px;
+    min-width: 200px;
+    margin-top: 10px;
+    background-color: rgb(59, 89, 165);
+    font-size: 18px;
+    text-align: start;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px 5px 20px rgb(59, 89, 165);
+  
+  }
+
+  .main-screen-heading {
+    position:relative;
+    bottom: 10%;
+    left: 0%;
+    color: gold;
+    text-shadow: 10px 10px 30px gold;
+  } 
+
 }
